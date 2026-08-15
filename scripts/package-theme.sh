@@ -7,7 +7,7 @@ stage_dir=$(mktemp -d "${TMPDIR:-/tmp}/paperpulse-academic.XXXXXX")
 trap 'rm -rf "$stage_dir"' EXIT HUP INT TERM
 
 mkdir -p "$dist_dir" "$stage_dir/PaperPulse Academic"
-for asset in manifest.json theme.css LICENSE README.md CHANGELOG.md; do
+for asset in manifest.json theme.css LICENSE README.md README.zh-CN.md CHANGELOG.md; do
     cp "$repo_dir/$asset" "$stage_dir/PaperPulse Academic/$asset"
 done
 
@@ -20,6 +20,7 @@ archive_tmp="$stage_dir/paperpulse-academic-v1.0.0.zip"
         "PaperPulse Academic/theme.css" \
         "PaperPulse Academic/LICENSE" \
         "PaperPulse Academic/README.md" \
+        "PaperPulse Academic/README.zh-CN.md" \
         "PaperPulse Academic/CHANGELOG.md"
 )
 mv "$archive_tmp" "$dist_dir/paperpulse-academic-v1.0.0.zip"
