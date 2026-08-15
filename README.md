@@ -1,5 +1,7 @@
 # PaperPulse Academic
 
+**English** | [简体中文](README.zh-CN.md)
+
 PaperPulse Academic is a complete Obsidian theme for focused reading, research,
 and long-form writing. It translates the PaperPulse macOS visual language into
 a quiet academic workspace: midnight navy and aubergine in Dark mode, warm
@@ -133,6 +135,8 @@ Review the source before installation if your Vault contains sensitive data.
 
 ```text
 paperpulse-academic-theme/
+├── README.md
+├── README.zh-CN.md              # Simplified Chinese README
 ├── manifest.json                 # Obsidian theme metadata
 ├── theme.css                     # complete Light/Dark theme
 ├── CHANGELOG.md
@@ -174,6 +178,7 @@ PaperPulse Academic/
 ├── theme.css
 ├── LICENSE
 ├── README.md
+├── README.zh-CN.md
 └── CHANGELOG.md
 ```
 
