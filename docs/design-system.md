@@ -37,6 +37,12 @@ restrained plum with text-level contrast, while inline and fenced code receive
 explicit backgrounds, borders, and text colors. Reading-mode rendering remains
 unchanged.
 
+Properties shown above the editor share that same paper context. Their heading,
+icons, labels, values, dates, list pills, and add-property action therefore
+resolve from paper ink/secondary roles instead of the surrounding application
+shell. Label and value fields use quiet paper-toned hover/focus fills rather
+than dark shell form controls.
+
 ## Material and fallbacks
 
 Glass uses a solid color first, with transparency/blur only when supported.

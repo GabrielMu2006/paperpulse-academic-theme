@@ -42,6 +42,9 @@ The fixed-palette contrast audit recorded these text contrast ratios:
 | Light muted | 5.69:1 |
 | Light raised | 15.86:1 |
 | Paper ink | 16.06:1 |
+| Dark-paper metadata muted | 7.23:1 |
+| Light-paper metadata ink | 15.50:1 |
+| Light-paper metadata muted | 6.40:1 |
 | Dark accent text | 7.37:1 |
 | Light accent text | 8.41:1 |
 
@@ -51,7 +54,8 @@ The accepted real-Obsidian evidence is summarized in the compatibility matrix;
 the detailed capture record remains in the private local QA archive. It covers
 Obsidian Desktop 1.13.7 on macOS, Dark and Light scheme behavior, Academic
 Dashboard 0.2.0 integration, Simplified Chinese and English stress content,
-keyboard-accessible navigation, and the corrected Live Preview editor width.
+keyboard-accessible navigation, the corrected Live Preview editor width, and
+paper-aware Properties labels/values in both application color schemes.
 The accessibility tree remained populated and no blank, loading, or error
 surface was observed.
 
