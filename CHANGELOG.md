@@ -1,5 +1,13 @@
 # Changelog
 
+## Unreleased
+
+- Increased the editing caret to a two-pixel, paper-aware high-contrast mark.
+- Strengthened inline and fenced-code backgrounds, borders, and delimiters in
+  Live Preview while preserving the existing reading-mode treatment.
+- Replaced pale active Markdown and math-source colors with scheme-specific
+  plum tones that pass the fixed-palette contrast audit.
+
 ## 1.0.0 — 2026-08-12
 
 - Initial independent release.

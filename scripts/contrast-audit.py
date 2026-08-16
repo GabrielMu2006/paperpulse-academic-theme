@@ -23,6 +23,12 @@ pairs = {
     "light muted": ("#6c606b", "#fff9ef", 4.5),
     "light raised": ("#251f26", "#fffdf8", 4.5),
     "paper ink": ("#1f1a21", "#fff7e8", 4.5),
+    "dark editor caret": ("#312434", "#fff7e8", 3.0),
+    "dark editor source": ("#5a385f", "#fff7e8", 4.5),
+    "dark code text": ("#f0d9ed", "#0c0916", 4.5),
+    "light editor caret": ("#312434", "#fffaf0", 3.0),
+    "light editor source": ("#523a58", "#fffaf0", 4.5),
+    "light code text": ("#332a34", "#eadfd4", 4.5),
     "dark accent text": ("#ffffff", "#a31662", 4.5),
     "light accent text": ("#ffffff", "#8e2058", 4.5),
 }
