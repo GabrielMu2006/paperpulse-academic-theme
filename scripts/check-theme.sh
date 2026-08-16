@@ -31,7 +31,9 @@ assert ".markdown-source-view .cm-contentContainer,\n.markdown-preview-sizer" no
 for selector in (".markdown-source-view.mod-cm6 .cm-cursor",
                  ".markdown-source-view.mod-cm6 .cm-active.cm-line",
                  ".markdown-source-view.mod-cm6 .HyperMD-codeblock",
-                 ".markdown-source-view.mod-cm6 .HyperMD-math"):
+                 ".markdown-source-view.mod-cm6 .HyperMD-math",
+                 ".metadata-container .metadata-property-key input[type=\"text\"]",
+                 ".metadata-container .metadata-property-value input[type=\"text\"]"):
     assert selector in css, f"missing editor visibility selector: {selector}"
 dark_scheme = css.split(".theme-dark {", 1)[1].split(".theme-light {", 1)[0]
 light_scheme = css.split(".theme-light {", 1)[1].split("/* T2:", 1)[0]
@@ -40,6 +42,11 @@ for token in ("--pp-editor-caret", "--pp-editor-source",
     assert all(f"{token}:" in scheme for scheme in (dark_scheme, light_scheme)), (
         f"editor token must exist in both schemes: {token}"
     )
+metadata_section = css.split(".metadata-container {", 1)[1].split("/* T4:", 1)[0]
+for token in ("--text-normal: var(--pp-paper-ink)",
+              "--metadata-label-text-color: var(--pp-paper-secondary)",
+              "--metadata-input-text-color: var(--pp-paper-ink)"):
+    assert token in metadata_section, f"missing paper-aware Properties role: {token}"
 
 dashboard_roles = {
     "shell", "toolbar", "panel", "panel-elevated", "surface-hover",

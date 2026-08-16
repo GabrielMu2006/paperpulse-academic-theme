@@ -7,6 +7,8 @@
   Live Preview while preserving the existing reading-mode treatment.
 - Replaced pale active Markdown and math-source colors with scheme-specific
   plum tones that pass the fixed-palette contrast audit.
+- Restored readable Properties text, icons, labels, dates, and list values on
+  warm editor paper, including when the surrounding application uses Dark mode.
 
 ## 1.0.0 — 2026-08-12
 

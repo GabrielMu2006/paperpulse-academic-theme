@@ -760,16 +760,41 @@ input[type="checkbox"]:checked {
   color: var(--pp-paper-ink);
 }
 
-.metadata-container,
-.metadata-properties-heading {
-  color: var(--pp-paper-ink);
-}
-
 .metadata-container {
+  --text-normal: var(--pp-paper-ink);
+  --text-muted: var(--pp-paper-secondary);
+  --text-faint: color-mix(in srgb, var(--pp-paper-secondary), transparent 22%);
+  --interactive-normal: color-mix(in srgb, var(--pp-paper-secondary), transparent 90%);
+  --interactive-hover: color-mix(in srgb, var(--pp-paper-secondary), transparent 84%);
+  --background-modifier-form-field: transparent;
+  --metadata-background: transparent;
+  --metadata-border-color: color-mix(in srgb, var(--pp-paper-secondary), transparent 72%);
+  --metadata-divider-color: color-mix(in srgb, var(--pp-paper-secondary), transparent 84%);
+  --metadata-divider-color-hover: color-mix(in srgb, var(--pp-paper-secondary), transparent 66%);
+  --metadata-divider-color-focus: var(--pp-accent-solid);
+  --metadata-property-background: transparent;
+  --metadata-property-background-hover: color-mix(in srgb, var(--pp-paper-secondary), transparent 94%);
+  --metadata-property-background-active: color-mix(in srgb, var(--pp-accent-solid), transparent 93%);
+  --metadata-label-background: color-mix(in srgb, var(--pp-paper-secondary), transparent 92%);
+  --metadata-label-background-hover: color-mix(in srgb, var(--pp-paper-secondary), transparent 85%);
+  --metadata-label-background-active: color-mix(in srgb, var(--pp-accent-solid), transparent 90%);
+  --metadata-label-text-color: var(--pp-paper-secondary);
+  --metadata-label-text-color-hover: var(--pp-paper-ink);
+  --metadata-input-background: transparent;
+  --metadata-input-background-hover: color-mix(in srgb, var(--pp-paper-secondary), transparent 94%);
+  --metadata-input-background-active: color-mix(in srgb, var(--pp-accent-solid), transparent 94%);
+  --metadata-input-text-color: var(--pp-paper-ink);
   border: 1px solid color-mix(in srgb, var(--pp-paper-secondary), transparent 72%);
   border-radius: var(--pp-radius-md);
   background: color-mix(in srgb, var(--pp-paper-soft), transparent 62%);
+  color: var(--pp-paper-ink);
   padding: 12px;
+}
+
+.metadata-properties-heading,
+.metadata-properties-title,
+.metadata-container .metadata-add-button {
+  color: var(--pp-paper-secondary);
 }
 
 /* T4: settings, forms, Bases, Canvas, Graph */
@@ -789,6 +814,63 @@ select,
   background: var(--pp-panel-inset);
   color: var(--pp-text);
   box-shadow: none;
+}
+
+/* Properties live on the warm editor paper even when the app shell is dark. */
+.metadata-container .metadata-property-key input[type="text"],
+.metadata-container input.metadata-property-key-input {
+  border-color: transparent;
+  background: var(--metadata-label-background);
+  color: var(--metadata-label-text-color);
+}
+
+.metadata-container .metadata-property-value input[type="text"],
+.metadata-container .metadata-property-value input[type="date"],
+.metadata-container .metadata-property-value textarea,
+.metadata-container .metadata-property-value select {
+  border-color: transparent;
+  background: var(--metadata-input-background);
+  color: var(--metadata-input-text-color);
+}
+
+.metadata-container .metadata-property-key input[type="text"]:hover,
+.metadata-container input.metadata-property-key-input:hover {
+  background: var(--metadata-label-background-hover);
+  color: var(--metadata-label-text-color-hover);
+}
+
+.metadata-container .metadata-property-value input[type="text"]:hover,
+.metadata-container .metadata-property-value input[type="date"]:hover,
+.metadata-container .metadata-property-value textarea:hover,
+.metadata-container .metadata-property-value select:hover {
+  background: var(--metadata-input-background-hover);
+}
+
+.metadata-container .metadata-property-key input[type="text"]:focus,
+.metadata-container input.metadata-property-key-input:focus {
+  background: var(--metadata-label-background-active);
+  color: var(--pp-paper-ink);
+}
+
+.metadata-container .metadata-property-value input[type="text"]:focus,
+.metadata-container .metadata-property-value input[type="date"]:focus,
+.metadata-container .metadata-property-value textarea:focus,
+.metadata-container .metadata-property-value select:focus {
+  background: var(--metadata-input-background-active);
+  color: var(--pp-paper-ink);
+}
+
+.metadata-container .metadata-property-icon,
+.metadata-container .metadata-input-longtext,
+.metadata-container .metadata-input-number,
+.metadata-container .metadata-input-date,
+.metadata-container .multi-select-pill-content {
+  color: var(--pp-paper-ink);
+}
+
+.metadata-container .metadata-add-button,
+.metadata-container .clickable-icon {
+  color: var(--pp-paper-secondary);
 }
 
 input:hover,
