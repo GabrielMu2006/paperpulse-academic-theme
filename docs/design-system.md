@@ -28,6 +28,15 @@ selection, active controls, and the Dashboard contract. The PaperPulse
 red→magenta→purple gradient is reserved for small identity bars and selected
 emphasis.
 
+## Editor visibility
+
+Editing affordances use dedicated paper-aware roles instead of inheriting the
+user accent directly. The insertion caret is two pixels wide and uses a dark
+ink color on both warm-paper schemes. Active Markdown and math source use a
+restrained plum with text-level contrast, while inline and fenced code receive
+explicit backgrounds, borders, and text colors. Reading-mode rendering remains
+unchanged.
+
 ## Material and fallbacks
 
 Glass uses a solid color first, with transparency/blur only when supported.

@@ -83,6 +83,9 @@ body {
   --pp-paper-soft: #ffeeda;
   --pp-paper-ink: #1f1a21;
   --pp-paper-secondary: #5c4f5c;
+  --pp-editor-caret: #312434;
+  --pp-editor-source: #5a385f;
+  --pp-editor-code-border: #756079;
   --pp-pulse-red: #f01a1f;
   --pp-pulse-magenta: #eb1fa3;
   --pp-pulse-purple: #6b2beb;
@@ -190,6 +193,9 @@ body {
   --pp-paper-soft: #fbe9d5;
   --pp-paper-ink: #251f26;
   --pp-paper-secondary: #665866;
+  --pp-editor-caret: #312434;
+  --pp-editor-source: #523a58;
+  --pp-editor-code-border: #756079;
   --pp-pulse-red: #b92c42;
   --pp-pulse-magenta: #a72b75;
   --pp-pulse-purple: #69409b;
@@ -255,8 +261,8 @@ body {
   --popover-background: var(--pp-glass-solid);
   --menu-background: var(--pp-glass-solid);
   --embed-background: var(--pp-panel-inset);
-  --code-background: #f4eadf;
-  --code-normal: #3d313d;
+  --code-background: #eadfd4;
+  --code-normal: #332a34;
   --code-comment: #827382;
   --code-function: #75479b;
   --code-important: #aa3445;
@@ -491,6 +497,7 @@ kbd {
 .markdown-source-view.mod-cm6 .cm-content {
   width: 100%;
   min-width: 0;
+  caret-color: var(--pp-editor-caret);
 }
 
 .markdown-source-view.mod-cm6.is-readable-line-width .cm-scroller,
@@ -591,16 +598,75 @@ a.tag {
 }
 
 .markdown-rendered code,
-.cm-inline-code {
-  border: 1px solid color-mix(in srgb, var(--pp-paper-secondary), transparent 76%);
+.markdown-source-view.mod-cm6 .cm-inline-code {
+  padding: 0.08em 0.3em;
+  border: 1px solid var(--pp-editor-code-border);
   border-radius: 5px;
+  background: var(--code-background);
+  color: var(--code-normal);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 .markdown-rendered pre,
-.HyperMD-codeblock {
-  border: 1px solid color-mix(in srgb, var(--pp-paper-secondary), transparent 70%);
+.markdown-source-view.mod-cm6 .HyperMD-codeblock {
+  border: 1px solid var(--pp-editor-code-border);
   border-radius: var(--pp-radius-sm);
   background: var(--code-background);
+  color: var(--code-normal);
+}
+
+.markdown-rendered pre {
+  box-shadow: inset 3px 0 var(--pp-editor-code-border);
+}
+
+.markdown-rendered pre code {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-codeblock:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end) {
+  border-block: 0;
+  border-radius: 0;
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-codeblock-begin:not(.HyperMD-codeblock-end) {
+  border-block-end: 0;
+  border-end-start-radius: 0;
+  border-end-end-radius: 0;
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-codeblock-end:not(.HyperMD-codeblock-begin) {
+  border-block-start: 0;
+  border-start-start-radius: 0;
+  border-start-end-radius: 0;
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-math,
+.markdown-source-view.mod-cm6 .HyperMD-math span,
+.markdown-source-view.mod-cm6 .cm-math {
+  color: var(--pp-editor-source);
+}
+
+.markdown-source-view.mod-cm6 .cm-active.cm-line:not(.HyperMD-codeblock) {
+  background: color-mix(in srgb, var(--pp-editor-source), transparent 94%);
+}
+
+.markdown-source-view.mod-cm6 .cm-active.cm-line:not(.HyperMD-codeblock) > span:not(.cm-inline-code),
+.markdown-source-view.mod-cm6 .cm-active.cm-line:not(.HyperMD-codeblock) > span:not(.cm-inline-code) span {
+  color: var(--pp-editor-source) !important;
+}
+
+.markdown-source-view.mod-cm6 .cm-formatting-math {
+  color: var(--pp-editor-caret) !important;
+  font-weight: 700;
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-codeblock .cm-formatting-code-block {
+  color: var(--code-punctuation) !important;
+  font-weight: 700;
 }
 
 .markdown-rendered table {
@@ -670,9 +736,14 @@ input[type="checkbox"]:checked {
   background: var(--pp-selection) !important;
 }
 
-.cm-cursor,
-.cm-dropCursor {
-  border-left-color: var(--pp-accent-solid) !important;
+.markdown-source-view.mod-cm6 .cm-cursor {
+  width: 0;
+  border-left: 2px solid var(--pp-editor-caret) !important;
+  margin-left: -1px;
+}
+
+.markdown-source-view.mod-cm6 .cm-dropCursor {
+  border-left: 2px solid var(--pp-accent-solid) !important;
 }
 
 .cm-gutters {
@@ -1017,6 +1088,7 @@ body.paperpulse-comfortable {
     --pp-glass-stroke-strong: currentColor;
     --pp-shadow-sm: none;
     --pp-shadow-md: none;
+    --pp-editor-code-border: currentColor;
   }
 
   .workspace-tab-header.is-active,
@@ -1046,6 +1118,9 @@ body.paperpulse-comfortable {
     --pp-paper-soft: Canvas;
     --pp-paper-ink: CanvasText;
     --pp-paper-secondary: CanvasText;
+    --pp-editor-caret: CanvasText;
+    --pp-editor-source: CanvasText;
+    --pp-editor-code-border: CanvasText;
     --pp-accent-solid: Highlight;
     --pp-accent-hover: Highlight;
     --pp-accent-soft: Highlight;

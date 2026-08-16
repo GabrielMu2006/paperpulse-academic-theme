@@ -28,6 +28,18 @@ for token in ("--background-primary", "--interactive-accent", "--text-normal",
 
 assert ".markdown-source-view.mod-cm6 .cm-sizer" in css
 assert ".markdown-source-view .cm-contentContainer,\n.markdown-preview-sizer" not in css
+for selector in (".markdown-source-view.mod-cm6 .cm-cursor",
+                 ".markdown-source-view.mod-cm6 .cm-active.cm-line",
+                 ".markdown-source-view.mod-cm6 .HyperMD-codeblock",
+                 ".markdown-source-view.mod-cm6 .HyperMD-math"):
+    assert selector in css, f"missing editor visibility selector: {selector}"
+dark_scheme = css.split(".theme-dark {", 1)[1].split(".theme-light {", 1)[0]
+light_scheme = css.split(".theme-light {", 1)[1].split("/* T2:", 1)[0]
+for token in ("--pp-editor-caret", "--pp-editor-source",
+              "--pp-editor-code-border"):
+    assert all(f"{token}:" in scheme for scheme in (dark_scheme, light_scheme)), (
+        f"editor token must exist in both schemes: {token}"
+    )
 
 dashboard_roles = {
     "shell", "toolbar", "panel", "panel-elevated", "surface-hover",
